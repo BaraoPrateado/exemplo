@@ -18,7 +18,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $response['employees'] = $this->employee->all();
+        return view('pages.index')->with($response);
     }
 
     /**
@@ -34,7 +35,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->employee->create($request->all());
+        return redirect()->back();
     }
 
     /**
