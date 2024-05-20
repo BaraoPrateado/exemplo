@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>Employee Name</label>
-                            <input type="text" class="form-control" name="emp_name">
+                            <input type="text" class="form-control" name="name">
                         </div>
                         <div class="col-md-6">
                             <label>Employee DOB</label>
@@ -46,7 +46,7 @@
                         @foreach ( $employees as $key => $employee )
                         <tr>
                             <td scope="col">{{ ++$key }}</td>
-                            <td scope="col">{{ $employee->emp_name }}</td>
+                            <td scope="col">{{ $employee->name }}</td>
                             <td scope="col">{{ $employee->dob }}</td>
                             <td scope="col">{{ $employee->phone }}</td>
                             <td scope="col">
@@ -56,7 +56,7 @@
                             </button>
                             </a>
                             
-                            <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style ="display:inline">
+                            <form action="{{ route('profile.destroy', ['id'=>$employee->id]) }}" method="delete" style ="display:inline">
                              @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -75,7 +75,7 @@
         .form-area{
             padding: 20px;
             margin-top: 20px;
-              background-color:#FFFF00;
+              background-color:#ffc4d8;
         }
         .bi-trash-fill{
             color:red;
