@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h3 align="center" class="mt-5">Employee Registation</h3>
+        <h3 align="center" class="mt-5">Cadastro de Funcionário</h3>
         <div class="row">
             <div class="col-md-2">
             </div>
@@ -11,23 +11,23 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Employee Name</label>
+                            <label>Nome do Usuário</label>
                             <input type="text" class="form-control" name="name">
                         </div>
                         <div class="col-md-6">
-                            <label>Employee DOB</label>
+                            <label>Data de Nascimento</label>
                             <input type="date" class="form-control" name="dob">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" name="phone">
+                            <label>CPF</label>
+                            <input type="text" class="form-control" name="cpf">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <input type="submit" class="btn btn-info" value="Register">
+                            <input type="submit" class="btn btn-info" value="Registrar">
                         </div>
                     </div>
                 </form>
@@ -36,10 +36,10 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Employee Name</th>
-                        <th scope="col">DOB</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Nome do Usuário</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Ação</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -48,18 +48,18 @@
                             <td scope="col">{{ ++$key }}</td>
                             <td scope="col">{{ $employee->name }}</td>
                             <td scope="col">{{ $employee->dob }}</td>
-                            <td scope="col">{{ $employee->phone }}</td>
+                            <td scope="col">{{ $employee->cpf }}</td>
                             <td scope="col">
                             <a href="{{  route('employee.edit', $employee->id) }}">
                             <button class="btn btn-primary btn-sm">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
                             </button>
                             </a>
                             
-                            <form action="{{ route('profile.destroy', ['id'=>$employee->id]) }}" method="delete" style ="display:inline">
+                            <form action="{{ route('employee.destroy', [$employee->id]) }}" method="POST" style ="display:inline">
                              @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                             </form>
                             </td>
                           </tr>
@@ -75,7 +75,7 @@
         .form-area{
             padding: 20px;
             margin-top: 20px;
-              background-color:#ffc4d8;
+              background-color:#b3e5fc;
         }
         .bi-trash-fill{
             color:red;

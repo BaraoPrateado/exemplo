@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('dob');
-            $table->string('phone')->nullable();
+            $table->string('cpf')->nullable();
 
             $table->timestamps();
         });

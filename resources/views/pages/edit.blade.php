@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h3 align="center" class="mt-5">Employee Management</h3>
+        <h3 align="center" class="mt-5">Cadastro de Funcionário - Editar</h3>
         <div class="row">
             <div class="col-md-2">
             </div>
@@ -12,23 +12,23 @@
                   @method("PATCH")
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Student Name</label>
-                            <input type="text" class="form-control" name="emp_name" value="{{ $employee->emp_name }}">
+                            <label>Nome do Usuário</label>
+                            <input type="text" class="form-control" name="name" value="{{ $employee->name }}">
                         </div>
                         <div class="col-md-6">
-                            <label>Student DOB</label>
+                            <label>Data de Nascimento</label>
                             <input type="date" class="form-control" name="dob" value="{{ $employee->dob }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Address</label>
-                            <input type="text" class="form-control" name="phone" value="{{ $employee->phone }}">
+                            <label>CPF</label>
+                            <input type="text" class="form-control" name="cpf" value="{{ $employee->cpf }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 mt-3">
-                            <input type="submit" class="btn btn-primary" value="Update">
+                            <input type="submit" class="btn btn-primary" value="Atualizar">
                         </div>
                     </div>
                 </form>
